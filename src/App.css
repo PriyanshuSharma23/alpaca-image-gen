@@ -1,38 +1,132 @@
 .App {
   text-align: center;
+  max-width: 55%;
+  margin : 0 auto
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  height: 10rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.alpaca-image {
+  margin: 1rem auto;
+  position: relative;
+  display: block;
+  height: 10rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.alpaca-image img {
+  position: absolute;
+  transform: translateX(-5rem);
+
+}
+
+.alpaca-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.button-section {
+  margin: 0 auto;
+  max-width: 50%;
+  display: flex;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  padding: 10px 20px;
+  border: none;
 }
+
+.selection-area {
+  margin-top: 10px;
+  padding: 2px;
+
+}
+
+.selection-area button:focus {
+  background: rgb(155, 155, 155);
+}
+
+.selection-button {
+  margin:5px 5px;
+  border-radius: 2rem;
+}
+
+.bg-select {
+  /* height: 3rem; */
+  /* width: 3rem; */
+  margin: 2px;
+  aspect-ratio: 1;
+}
+
+.blue50 {
+  background-image: url(./assets/backgrounds/blue50.png)
+}
+.blue60 {
+  background-image: url(./assets/backgrounds/blue60.png);
+}
+.blue70 {
+  background-image: url(./assets/backgrounds/blue70.png);
+}
+
+.darkblue30 {
+  background-image: url(./assets/backgrounds/darkblue30.png);
+}
+.darkblue50 {
+  background-image: url(./assets/backgrounds/darkblue50.png);
+}
+.darkblue70 {
+  background-image: url(./assets/backgrounds/darkblue70.png);
+}
+
+.green50 {
+  background-image: url(./assets/backgrounds/green50.png);
+}
+.green60 {
+  background-image: url(./assets/backgrounds/green60.png);
+}
+.green70 {
+  background-image: url(./assets/backgrounds/green70.png);
+}
+
+.grey40 {
+  background-image: url(./assets/backgrounds/grey40.png);
+}
+.grey70 {
+  background-image: url(./assets/backgrounds/grey70.png);
+}
+.grey80 {
+  background-image: url(./assets/backgrounds/grey80.png);
+}
+
+.red50 {
+  background-image: url(./assets/backgrounds/red50.png);
+}
+.red60 {
+  background-image: url(./assets/backgrounds/red60.png);
+}
+.red70 {
+  background-image: url(./assets/backgrounds/red70.png);
+}
+
+.yellow50 {
+  background-image: url(./assets/backgrounds/yellow50.png);
+}
+.yellow60 {
+  background-image: url(./assets/backgrounds/yellow60.png);
+}
+.yellow70 {
+  background-image: url(./assets/backgrounds/yellow70.png);
+}
+
+canvas {
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  position: absolute;
+}
+
