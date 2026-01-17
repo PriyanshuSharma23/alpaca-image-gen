@@ -23,10 +23,19 @@ import {
 
 import SelectionParse from "./selectionParse";
 
-import html2canvas from "html2canvas";
 import domtoimage from "dom-to-image";
-import  download  from "downloadjs";
-// import { toPng } from "html-to-png";
+import download from "downloadjs";
+
+const categories = [
+  "Accessories",
+  "Backgrounds",
+  "Ears",
+  "Eyes",
+  "Hair",
+  "Leg",
+  "Mouth",
+  "Neck",
+];
 
 function App() {
   const [selectedSelection, setSelectedSelection] =
@@ -47,123 +56,102 @@ function App() {
     return arr[randomInt(arr.length)];
   }
 
+  const handleRandomize = () => {
+    setAccessories(returnRandomItem(accessoriesArr));
+    setBackground(returnRandomItem(backgroundsArr));
+    setEars(returnRandomItem(earsArr));
+    setEyes(returnRandomItem(eyesArr));
+    setHair(returnRandomItem(hairArr));
+    setLeg(returnRandomItem(legArr));
+    setMouth(returnRandomItem(mouthArr));
+    setNeck(returnRandomItem(neckArr));
+  };
+
+  const handleDownload = () => {
+    const alpacaCanvasNode = document.getElementById("alpaca");
+    if (alpacaCanvasNode) {
+      domtoimage.toPng(alpacaCanvasNode, { quality: 1 }).then(async (dataUrl) => {
+        download(dataUrl, "my-comic-alpaca.png");
+      });
+    }
+  };
+
   return (
     <div className="App">
-      <h1>Alpaca Image Generator</h1>
+      {/* Decorative bursts */}
+      <div className="burst top-right">ZAP!</div>
+      <div className="burst bottom-left">WOW!</div>
+
+      {/* Comic Title */}
+      <div className="comic-title">
+        <span className="star-decoration">★</span>
+        <span className="star-decoration">★</span>
+        <span className="star-decoration">✦</span>
+        <h1>Alpaca Generator</h1>
+      </div>
+
       <div className="content-section">
+        {/* Alpaca Display Panel */}
         <div className="alpaca-section">
           <div className="alpaca-image" id="alpaca">
-            <img src={nose} />
+            <img src={nose} alt="nose" />
             <img src={accessories} style={{ zIndex: 100 }} alt="" />
             <img src={background} style={{ zIndex: -100 }} alt="" />
-            <img src={ears} alt="" />
-            <img src={eyes} style={{ zIndex: 10 }} alt="" />
-            <img src={hair} style={{ zIndex: 0 }} alt="" />
-            <img src={leg} alt="" />
-            <img src={mouth} style={{ zIndex: 10 }} alt="" />
-            <img src={neck} style={{ zIndex: -10 }} alt="" />
+            <img src={ears} alt="ears" />
+            <img src={eyes} style={{ zIndex: 10 }} alt="eyes" />
+            <img src={hair} style={{ zIndex: 0 }} alt="hair" />
+            <img src={leg} alt="leg" />
+            <img src={mouth} style={{ zIndex: 10 }} alt="mouth" />
+            <img src={neck} style={{ zIndex: -10 }} alt="neck" />
           </div>
+
           <div className="button-section">
-            <button
-              onClick={() => {
-                setAccessories(returnRandomItem(accessoriesArr));
-                setBackground(returnRandomItem(backgroundsArr));
-                setEars(returnRandomItem(earsArr));
-                setEyes(returnRandomItem(eyesArr));
-                setHair(returnRandomItem(hairArr));
-                setLeg(returnRandomItem(legArr));
-                setMouth(returnRandomItem(mouthArr));
-                setNeck(returnRandomItem(neckArr));
-              }}
-            >
-              Random Alpaca
+            <button className="action-btn random" onClick={handleRandomize}>
+              🎲 Random!
             </button>
-            <button
-              onClick={() => {
-                const alpacaCanvasNode = document.getElementById("alpaca");
-                if(alpacaCanvasNode){
-                domtoimage.toPng(alpacaCanvasNode,{quality:1}).then(async (dataUrl) => {
-                  console.log(dataUrl)
-                  download(dataUrl, "my-alpaca")
-                })
-                }}
-              }
-            >
-              Download Alpaca
+            <button className="action-btn download" onClick={handleDownload}>
+              📥 Download
             </button>
           </div>
         </div>
-        <div className="selection-area">
-          <button
-            onClick={() => {
-              setSelectedSelection("Accessories");
-            }}
-          >
-            Accessories
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Backgrounds");
-            }}
-          >
-            Backgrounds
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Ears");
-            }}
-          >
-            Ears
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Eyes");
-            }}
-          >
-            Eyes
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Hair");
-            }}
-          >
-            Hair
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Leg");
-            }}
-          >
-            Leg
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Mouth");
-            }}
-          >
-            Mouth
-          </button>
-          <button
-            onClick={() => {
-              setSelectedSelection("Neck");
-            }}
-          >
-            Neck
-          </button>
+
+        {/* Controls Panel */}
+        <div className="controls-panel">
+          <div className="selection-area">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`category-btn ${
+                  selectedSelection === category ? "active" : ""
+                }`}
+                onClick={() => setSelectedSelection(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <div className="options-container">
+            <h3>{selectedSelection}</h3>
+            <div className="options-grid">
+              <SelectionParse
+                selected={selectedSelection}
+                setAccessories={setAccessories}
+                setBackground={setBackground}
+                setEars={setEars}
+                setEyes={setEyes}
+                setHair={setHair}
+                setLeg={setLeg}
+                setMouth={setMouth}
+                setNeck={setNeck}
+              />
+            </div>
+          </div>
         </div>
-        <div className="">
-          <SelectionParse
-            selected={selectedSelection}
-            setAccessories={setAccessories}
-            setBackground={setBackground}
-            setEars={setEars}
-            setEyes={setEyes}
-            setHair={setHair}
-            setLeg={setLeg}
-            setMouth={setMouth}
-            setNeck={setNeck}
-          />
-        </div>
+      </div>
+
+      <div className="comic-footer">
+        Made with ♥ — Create your own alpaca!
       </div>
     </div>
   );

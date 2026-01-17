@@ -1,132 +1,505 @@
+/* ========================================
+   COMIC BOOK STYLE - ALPACA GENERATOR
+   ======================================== */
+
 .App {
   text-align: center;
-  max-width: 55%;
-  margin : 0 auto
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-img {
-  height: 10rem;
+/* ========================================
+   TITLE STYLING - Comic Speech Bubble
+   ======================================== */
+
+.comic-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.comic-title h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5rem;
+  color: #ff6b6b;
+  text-shadow: 
+    4px 4px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000;
+  letter-spacing: 3px;
+  margin: 0;
+  padding: 20px 40px;
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 20px;
+  position: relative;
+  transform: rotate(-1deg);
+  box-shadow: 8px 8px 0 #000;
+}
+
+.comic-title h1::before {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 25px solid #000;
+}
+
+.comic-title h1::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 53px;
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 17px solid transparent;
+  border-top: 22px solid #fff;
+}
+
+/* Decorative stars around title */
+.star-decoration {
+  position: absolute;
+  font-size: 2rem;
+  color: #ffd93d;
+  text-shadow: 2px 2px 0 #000;
+  animation: twinkle 1s ease-in-out infinite alternate;
+}
+
+.star-decoration:nth-child(1) { top: -10px; left: -30px; animation-delay: 0s; }
+.star-decoration:nth-child(2) { top: -10px; right: -30px; animation-delay: 0.3s; }
+.star-decoration:nth-child(3) { bottom: 10px; right: -40px; animation-delay: 0.6s; }
+
+@keyframes twinkle {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1.2) rotate(15deg); }
+}
+
+/* ========================================
+   CONTENT SECTION - Comic Panels Layout
+   ======================================== */
+
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .content-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   ALPACA SECTION - Main Character Panel
+   ======================================== */
+
+.alpaca-section {
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 10px 10px 0 #000;
+  position: relative;
+  transform: rotate(-0.5deg);
+}
+
+.alpaca-section::before {
+  content: 'YOUR ALPACA!';
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: #6c5ce7;
+  color: #fff;
+  padding: 5px 15px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  transform: rotate(-3deg);
+}
+
+/* Halftone pattern overlay */
+.alpaca-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  border-radius: 10px;
 }
 
 .alpaca-image {
-  margin: 1rem auto;
+  margin: 20px auto;
   position: relative;
   display: block;
-  height: 10rem;
+  height: 250px;
+  width: 250px;
+  border: 4px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 0 20px rgba(0,0,0,0.1),
+    6px 6px 0 #000;
 }
-
 
 .alpaca-image img {
   position: absolute;
-  transform: translateX(-5rem);
-
+  height: 250px;
+  width: 250px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.alpaca-section {
-  display: flex;
-  flex-direction: column;
-  
-  margin: 5px;
-}
+/* ========================================
+   ACTION BUTTONS - POW! STYLE
+   ======================================== */
 
 .button-section {
-  margin: 0 auto;
-  max-width: 50%;
+  margin-top: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
+.action-btn {
+  font-family: 'Bangers', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 12px 25px;
+  border: 4px solid #000;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
 }
 
-.selection-area {
-  margin-top: 10px;
-  padding: 2px;
-
+.action-btn.random {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+  color: #fff;
+  box-shadow: 5px 5px 0 #000;
 }
 
-.selection-area button:focus {
-  background: rgb(155, 155, 155);
+.action-btn.download {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44b3ab 100%);
+  color: #fff;
+  box-shadow: 5px 5px 0 #000;
 }
 
-.selection-button {
-  margin:5px 5px;
-  border-radius: 2rem;
+.action-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #000;
 }
 
-.bg-select {
-  /* height: 3rem; */
-  /* width: 3rem; */
-  margin: 2px;
-  aspect-ratio: 1;
+.action-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 #000;
 }
 
-.blue50 {
-  background-image: url(./assets/backgrounds/blue50.png)
-}
-.blue60 {
-  background-image: url(./assets/backgrounds/blue60.png);
-}
-.blue70 {
-  background-image: url(./assets/backgrounds/blue70.png);
-}
-
-.darkblue30 {
-  background-image: url(./assets/backgrounds/darkblue30.png);
-}
-.darkblue50 {
-  background-image: url(./assets/backgrounds/darkblue50.png);
-}
-.darkblue70 {
-  background-image: url(./assets/backgrounds/darkblue70.png);
-}
-
-.green50 {
-  background-image: url(./assets/backgrounds/green50.png);
-}
-.green60 {
-  background-image: url(./assets/backgrounds/green60.png);
-}
-.green70 {
-  background-image: url(./assets/backgrounds/green70.png);
-}
-
-.grey40 {
-  background-image: url(./assets/backgrounds/grey40.png);
-}
-.grey70 {
-  background-image: url(./assets/backgrounds/grey70.png);
-}
-.grey80 {
-  background-image: url(./assets/backgrounds/grey80.png);
-}
-
-.red50 {
-  background-image: url(./assets/backgrounds/red50.png);
-}
-.red60 {
-  background-image: url(./assets/backgrounds/red60.png);
-}
-.red70 {
-  background-image: url(./assets/backgrounds/red70.png);
-}
-
-.yellow50 {
-  background-image: url(./assets/backgrounds/yellow50.png);
-}
-.yellow60 {
-  background-image: url(./assets/backgrounds/yellow60.png);
-}
-.yellow70 {
-  background-image: url(./assets/backgrounds/yellow70.png);
-}
-
-canvas {
-  height: 100vh;
-  width: 100vw;
-  background-color: red;
+/* Action burst effect */
+.action-btn::before {
+  content: '';
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
+.action-btn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   CONTROLS PANEL - Selection Area
+   ======================================== */
+
+.controls-panel {
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 10px 10px 0 #000;
+  transform: rotate(0.5deg);
+  position: relative;
+}
+
+.controls-panel::before {
+  content: 'CUSTOMIZE!';
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: #fdcb6e;
+  color: #000;
+  padding: 5px 15px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  transform: rotate(2deg);
+}
+
+/* Category buttons container */
+.selection-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+  border: 3px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.category-btn {
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  transition: all 0.15s ease;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.category-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.category-btn:active,
+.category-btn.active {
+  background: #ff6b6b;
+  color: #fff;
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Options container */
+.options-container {
+  background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 100px;
+}
+
+.options-container h3 {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  color: #6c5ce7;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Selection buttons in options */
+.selection-button {
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border: 3px solid #000;
+  border-radius: 25px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+  color: #fff;
+  transition: all 0.15s ease;
+  box-shadow: 3px 3px 0 #000;
+  text-transform: capitalize;
+}
+
+.selection-button:hover {
+  transform: translate(-2px, -2px) rotate(-2deg);
+  box-shadow: 5px 5px 0 #000;
+  background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+}
+
+.selection-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Background color select buttons */
+.bg-select {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 3px 3px 0 #000;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-select:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.bg-select:active {
+  transform: scale(0.95);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.bg-select img {
+  display: none;
+}
+
+/* Background button colors */
+.blue50 { background-image: url(./assets/backgrounds/blue50.png); }
+.blue60 { background-image: url(./assets/backgrounds/blue60.png); }
+.blue70 { background-image: url(./assets/backgrounds/blue70.png); }
+.darkblue30 { background-image: url(./assets/backgrounds/darkblue30.png); }
+.darkblue50 { background-image: url(./assets/backgrounds/darkblue50.png); }
+.darkblue70 { background-image: url(./assets/backgrounds/darkblue70.png); }
+.green50 { background-image: url(./assets/backgrounds/green50.png); }
+.green60 { background-image: url(./assets/backgrounds/green60.png); }
+.green70 { background-image: url(./assets/backgrounds/green70.png); }
+.grey40 { background-image: url(./assets/backgrounds/grey40.png); }
+.grey70 { background-image: url(./assets/backgrounds/grey70.png); }
+.grey80 { background-image: url(./assets/backgrounds/grey80.png); }
+.red50 { background-image: url(./assets/backgrounds/red50.png); }
+.red60 { background-image: url(./assets/backgrounds/red60.png); }
+.red70 { background-image: url(./assets/backgrounds/red70.png); }
+.yellow50 { background-image: url(./assets/backgrounds/yellow50.png); }
+.yellow60 { background-image: url(./assets/backgrounds/yellow60.png); }
+.yellow70 { background-image: url(./assets/backgrounds/yellow70.png); }
+
+/* ========================================
+   FOOTER - Comic Credits Style
+   ======================================== */
+
+.comic-footer {
+  margin-top: 40px;
+  padding: 15px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  color: #636e72;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   SPECIAL EFFECTS
+   ======================================== */
+
+/* Burst/explosion decoration */
+.burst {
+  position: fixed;
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  background: #ffd93d;
+  border: 3px solid #000;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  box-shadow: 3px 3px 0 #000;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.burst.top-right {
+  top: 100px;
+  right: 50px;
+}
+
+.burst.bottom-left {
+  bottom: 100px;
+  left: 50px;
+}
+
+/* Speed lines animation for random button */
+@keyframes speedLines {
+  0% { opacity: 0; transform: translateX(-10px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(10px); }
+}
+
+/* Shake animation for randomize */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-5deg); }
+  75% { transform: translateX(5px) rotate(5deg); }
+}
+
+.action-btn.random:active {
+  animation: shake 0.3s ease;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 600px) {
+  .comic-title h1 {
+    font-size: 2rem;
+    padding: 15px 25px;
+  }
+
+  .alpaca-image {
+    height: 200px;
+    width: 200px;
+  }
+
+  .alpaca-image img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .action-btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+
+  .selection-button {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+
+  .burst {
+    display: none;
+  }
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Canvas - hidden */
+canvas {
+  display: none;
+}

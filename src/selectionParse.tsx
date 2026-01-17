@@ -133,475 +133,354 @@ const SelectionParse: FC<IProps> = ({
 }) => {
   switch (selected) {
     default:
-      return <div>Something is here</div>;
+      return <div>Select a category above!</div>;
+
     case "Accessories":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setAccessories("");
-            }}
+            onClick={() => setAccessories("")}
           >
-            None
+            ❌ None
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setAccessories(earings);
-            }}
+            onClick={() => setAccessories(earings)}
           >
-            Earings
+            💎 Earrings
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setAccessories(flower);
-            }}
+            onClick={() => setAccessories(flower)}
           >
-            Flower
+            🌸 Flower
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setAccessories(glasses);
-            }}
+            onClick={() => setAccessories(glasses)}
           >
-            Glasses
+            🕶️ Glasses
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setAccessories(headphone);
-            }}
+            onClick={() => setAccessories(headphone)}
           >
-            Headphone
+            🎧 Headphone
           </button>
-        </div>
+        </>
       );
+
     case "Backgrounds":
       return (
-        <div>
+        <>
           <button
             className="bg-select blue50"
-            onClick={() => {
-              setBackground(blue50);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(blue50)}
+            title="Blue 50"
+          />
           <button
             className="bg-select blue60"
-            onClick={() => {
-              setBackground(blue60);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(blue60)}
+            title="Blue 60"
+          />
           <button
             className="bg-select blue70"
-            onClick={() => {
-              setBackground(blue70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-
+            onClick={() => setBackground(blue70)}
+            title="Blue 70"
+          />
           <button
             className="bg-select darkblue30"
-            onClick={() => {
-              setBackground(darkblue30);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(darkblue30)}
+            title="Dark Blue 30"
+          />
           <button
             className="bg-select darkblue50"
-            onClick={() => {
-              setBackground(darkblue50);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(darkblue50)}
+            title="Dark Blue 50"
+          />
           <button
             className="bg-select darkblue70"
-            onClick={() => {
-              setBackground(darkblue70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-
+            onClick={() => setBackground(darkblue70)}
+            title="Dark Blue 70"
+          />
           <button
             className="bg-select green50"
-            onClick={() => {
-              setBackground(green50);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(green50)}
+            title="Green 50"
+          />
           <button
             className="bg-select green60"
-            onClick={() => {
-              setBackground(green60);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(green60)}
+            title="Green 60"
+          />
           <button
             className="bg-select green70"
-            onClick={() => {
-              setBackground(green70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-
+            onClick={() => setBackground(green70)}
+            title="Green 70"
+          />
           <button
             className="bg-select grey40"
-            onClick={() => {
-              setBackground(grey40);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(grey40)}
+            title="Grey 40"
+          />
           <button
             className="bg-select grey70"
-            onClick={() => {
-              setBackground(grey70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(grey70)}
+            title="Grey 70"
+          />
           <button
             className="bg-select grey80"
-            onClick={() => {
-              setBackground(grey80);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-
+            onClick={() => setBackground(grey80)}
+            title="Grey 80"
+          />
           <button
             className="bg-select red50"
-            onClick={() => {
-              setBackground(red50);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(red50)}
+            title="Red 50"
+          />
           <button
             className="bg-select red60"
-            onClick={() => {
-              setBackground(red60);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(red60)}
+            title="Red 60"
+          />
           <button
             className="bg-select red70"
-            onClick={() => {
-              setBackground(red70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-
+            onClick={() => setBackground(red70)}
+            title="Red 70"
+          />
           <button
             className="bg-select yellow50"
-            onClick={() => {
-              setBackground(yellow50);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(yellow50)}
+            title="Yellow 50"
+          />
           <button
             className="bg-select yellow60"
-            onClick={() => {
-              setBackground(yellow60);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
+            onClick={() => setBackground(yellow60)}
+            title="Yellow 60"
+          />
           <button
             className="bg-select yellow70"
-            onClick={() => {
-              setBackground(yellow70);
-            }}
-          >
-            <img src="" alt="" />
-          </button>
-        </div>
+            onClick={() => setBackground(yellow70)}
+            title="Yellow 70"
+          />
+        </>
       );
+
     case "Ears":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setEars(defaultEars);
-            }}
+            onClick={() => setEars(defaultEars)}
           >
-            Default
+            👂 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEars(tiltBackwardEars);
-            }}
+            onClick={() => setEars(tiltBackwardEars)}
           >
-            Tilt Backward
+            ↩️ Tilt Back
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEars(tiltForwardEars);
-            }}
+            onClick={() => setEars(tiltForwardEars)}
           >
-            Tilt Forward
+            ↪️ Tilt Forward
           </button>
-        </div>
+        </>
       );
+
     case "Eyes":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(defaultEyes);
-            }}
+            onClick={() => setEyes(defaultEyes)}
           >
-            Default
+            👀 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(angry);
-            }}
+            onClick={() => setEyes(angry)}
           >
-            Angry
+            😠 Angry
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(naughty);
-            }}
+            onClick={() => setEyes(naughty)}
           >
-            Naughty
+            😏 Naughty
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(panda);
-            }}
+            onClick={() => setEyes(panda)}
           >
-            Panda
+            🐼 Panda
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(smart);
-            }}
+            onClick={() => setEyes(smart)}
           >
-            Smart
+            🤓 Smart
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setEyes(star);
-            }}
+            onClick={() => setEyes(star)}
           >
-            Star
+            ⭐ Star
           </button>
-        </div>
+        </>
       );
+
     case "Hair":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(defaultHair);
-            }}
+            onClick={() => setHair(defaultHair)}
           >
-            Default
+            💇 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(bang);
-            }}
+            onClick={() => setHair(bang)}
           >
-            Bang
+            ✂️ Bang
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(curls);
-            }}
+            onClick={() => setHair(curls)}
           >
-            Curls
+            🌀 Curls
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(elegant);
-            }}
+            onClick={() => setHair(elegant)}
           >
-            Elegant
+            👑 Elegant
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(fancy);
-            }}
+            onClick={() => setHair(fancy)}
           >
-            Fancy
+            ✨ Fancy
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setHair(short);
-            }}
+            onClick={() => setHair(short)}
           >
-            Short
+            📐 Short
           </button>
-        </div>
+        </>
       );
+
     case "Leg":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(defaultLeg);
-            }}
+            onClick={() => setLeg(defaultLeg)}
           >
-            Default
+            🦵 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(bubbleTea);
-            }}
+            onClick={() => setLeg(bubbleTea)}
           >
-            Bubble Tea
+            🧋 Bubble Tea
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(cookie);
-            }}
+            onClick={() => setLeg(cookie)}
           >
-            Cookie
+            🍪 Cookie
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(gameConsole);
-            }}
+            onClick={() => setLeg(gameConsole)}
           >
-            Game Console
+            🎮 Game
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(tiltBackwardLeg);
-            }}
+            onClick={() => setLeg(tiltBackwardLeg)}
           >
-            Tilt BackWard
+            ↩️ Tilt Back
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setLeg(tiltForwardLeg);
-            }}
+            onClick={() => setLeg(tiltForwardLeg)}
           >
-            TiltForward
+            ↪️ Tilt Forward
           </button>
-        </div>
+        </>
       );
+
     case "Mouth":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setMouth(defaultMouth);
-            }}
+            onClick={() => setMouth(defaultMouth)}
           >
-            Default
+            😊 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setMouth(astonished);
-            }}
+            onClick={() => setMouth(astonished)}
           >
-            Astonished
+            😮 Astonished
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setMouth(eating);
-            }}
+            onClick={() => setMouth(eating)}
           >
-            Eating
+            😋 Eating
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setMouth(laugh);
-            }}
+            onClick={() => setMouth(laugh)}
           >
-            Laugh
+            😄 Laugh
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setMouth(tongue);
-            }}
+            onClick={() => setMouth(tongue)}
           >
-            Tongue
+            😛 Tongue
           </button>
-        </div>
+        </>
       );
+
     case "Neck":
       return (
-        <div>
+        <>
           <button
             className="selection-button"
-            onClick={() => {
-              setNeck(defaultNeck);
-            }}
+            onClick={() => setNeck(defaultNeck)}
           >
-            Default
+            🦒 Default
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setNeck(bendBackward);
-            }}
+            onClick={() => setNeck(bendBackward)}
           >
-            Bend Backward
+            ↩️ Bend Back
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setNeck(bendForward);
-            }}
+            onClick={() => setNeck(bendForward)}
           >
-            Bend Forward
+            ↪️ Bend Forward
           </button>
           <button
             className="selection-button"
-            onClick={() => {
-              setNeck(thick);
-            }}
+            onClick={() => setNeck(thick)}
           >
-            Thick
+            💪 Thick
           </button>
-        </div>
+        </>
       );
   }
 };
